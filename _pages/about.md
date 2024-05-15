@@ -44,8 +44,11 @@ To fine-tune the model efficiently while at the same time preserving its learned
 Experiment
 ======
 ⦁	**Network Architectuire:** LISA leveraged a multimodal LLM base, spefifically LLaVA-7B-v1-1 or LLaVA-13B-v1-1 coupled with the ViT-SAM backbone for vision processing. This architecture enables the integration of language understanding and visual perception.
+
 ⦁	**Training:** For this experiment the training was executed on high-performance hardware infrastructure, utilizing 8 NVIDIA 24G 3090 GPUs and the deepspeed engine. Furthermore AdamW optimizer was employed with carefully chosen hyperparameters ensuring stable and efficient training. The evalutation metrics include gloU and cloU with a preference for gloU due to its stability and suitability for assesing segmentation quality. gloU is the average of all per-image Intersection-over-Unions. cloU is the cumulativce intersection over the cumulative union.
+
 ⦁	**Results:** Lisa exhibited remarkable performance in reasoning segmentation tasks, surpassing existing works by achieving more than a 20% boost in gloU. For this massive succes the models proficiency in understanding implicit queries and leveraging multimodal LLMs certanly played a pivitol role.
+
 ⦁	**Vanilla referring segemnation:** To further prove the performance the reasearchers also let the model undergo a test in a vanilla referring segmenation task. Here once again LISA outperforms state-of-the-art methods across various benchmarks and is the best one in all but two of the scores.
 
 
