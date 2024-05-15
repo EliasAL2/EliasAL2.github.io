@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "Blog Post for the Scientific Paper LISA: Reasoning Segmentation via Large Language Model by Elias Allert and Jonathan Tamm"
 author_profile: true
 redirect_from: 
   - /about/
