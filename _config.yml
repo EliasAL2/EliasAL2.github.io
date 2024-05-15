@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : Blog Postfor LISA: Reasoning Segmentation via Large Language Model"
+title                    : "Blog Postfor LISA: Reasoning Segmentation via Large Language Model"
 title_separator          : "-"
 name                     : &name "Elias Allert and Jonathan Tamm"
 description              : &description "Elias Allert 3655070, Jonthan Tamm"
