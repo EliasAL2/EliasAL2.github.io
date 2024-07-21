@@ -3,8 +3,7 @@ permalink: /
 title: "Blog Post for the Scientific Paper LISA: Reasoning Segmentation via Large Language Model by Elias Allert and Jonathan Tamm"
 author_profile: true
 redirect_from: 
-  - /about/
-  - /about.html
+  - https://eliasal2.github.io/
 ---
 
 Introduction
