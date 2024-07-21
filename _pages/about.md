@@ -3,7 +3,8 @@ permalink: /
 title: "Blog Post for the Scientific Paper LISA: Reasoning Segmentation via Large Language Model by Elias Allert and Jonathan Tamm"
 author_profile: true
 redirect_from: 
-  - https://eliasal2.github.io/
+  - /about/
+  - /about.html
 ---
 
 Introduction
@@ -80,9 +81,37 @@ Segmentation.
 
 Introducing Lisa
 ======
-**Architecture:**
-The Architecture of Lisa operates in a pipeline fashion. At one end the model is 	presented with an image and a (complex) textual instruction. LISA then utilizes a 	multimodal LLM to generate a response. The important part here is the <SEG> 	token.
-If the instruction includes a request for segmentation LISA proceeds to extract 	the embedding corresponding to <SEG>. This embedding is is then fed into a decode 	together with visual features that are extracted from the image by using a vision 	backbone. Now the final segmentation mask is generated highlighting the part of 	the image that was described in the instruction.
+**Piepline:**
+The Architecture of Lisa operates in a pipeline fashion. At one end the model is 	presented with an image and a (complex) textual instruction. These inputs then go through several diffrent components in order to finally present an image with a red segmentation mask layed over the desired object in the input image. The following explains this pipeline in more detail.
+
+*Input:*
+//BILD//
+The input of LISA contains of only two things, an image and a query text. The part that makes this input special is the complexity of the input text. With models prior to LISA this input text could not be very complex. On the contrary. It actually had to be very simple and concise and explain directly what the intent behind the input is. For image above the input would probably have to be along the lines of, "please segment the orange in this image". Now with LISA this is no longer the case. For LISAs input query one is now able to ask long and complex questions and even questions that do not directly reveal what the intended object is that should be segmented. LISA's inputs can now be questions like "What is the food with the mos Vitamin C in this image?". You can also have longer conversations with it in wich you slowly reveal what object you want to be segmented. 
+What is it exactly that makes Lisa capable of all these things? Its the abiltiy to reason and to understand and use real world knowledge. With these it can understand even the most complex questions and still give accurate awnsers. How exactly these reasoning capability come to be is through the several diffrent components of LISA.
+
+*Vision Encode:*
+//BILD//
+The Vision Encoder or Vision Backbone is the first of these components. It takes the input image and extracts all of the important information out of it. It then transforms this data so it can be used in the next steps. For LISA the reaserchers decided to use SAM as the Vision Backbone. Though they also want to clarify that other similar models would have been also possible to be use here meaning this component is very flexible. Still the researchers decided to use SAM. SAM or the Segment Anything Model is an extremly powerful model for image segmentation tasks. It was trained on the largest segmentation dataset so far. One very important cababilty of SAM for the LISA model is its zero-shot capability. This means SAM is able to work with images it has never seen before. Obviously a very important feature for LISA since it should also be able to work with images it has never seen before at still segment the target object accuratly. Another important aspect of SAM is that it was build with beeing easily transferable to new tasks in mind. Meaning its very easy to incorparte SAM into other models and use its capabilitys for specific tasks.
+
+*Multi-Modal LLM:*
+//BILD//
+Next up is the Multi-Modal LLM of LISA. This one was trained using LLaVa as a base. As an input it takes both the image and the text and later on outputs a new text. The important part the reasearchers added to their MMLLM for LISA is the <SEG> token that was added to the vocabulary of the LLM. This toke signifies the request for segmentation. So when the request for segmenation was made in the input text like in our example (With "Please output segmentation mask") the MMLLM will detect this and add a <SEG> token to its output. This <SEG> token will then be later on clarify the need for a segmenation mask to the upcoming components of LISA so its made sure that a segmentation mask is put over the correct part of the image.
+The training of this MMLLM took a comparably small amount of time only taking 3 days and was relativly resource inexpensive.
+
+*LoRA:*
+//BILD//
+A reason for this efficent and fast training is certanly LoRA. LoRA or Low-Rang Adaptation is used to perform efficient fine tuning of bi language models to adapt to diffrent kinds of tasks. It enables effective adjustments of the model without major changes. It accomplishes this with two key factors. Firt up it freezes the pre trained weight so it doesn't have to be refreshed on every single change. And secondly it injects trainable matrices with low rank structures into every layer of te model. This inturn reduces the amount of parameters that need to be trained.
+
+*Decoder:*
+//BILD//
+The decoder now takes in all of the extracted visual data of the vision backbone and the embedding of the <SEG> token wich clarifys the need for segmentation. With all of this information it now constructs the final segmentation mask that is layed over the input image and presents this as our Output.
+
+*Resulting Image:*
+//BILD//
+In the final image the desired object is now marked with a red segmentation mask. The even more impressive part here though is not the part that is segmented but that part that isn't. Through the high accuracy the entire rest of the image stays unchanged and unsgemnted only highliting the actual desired object. A feat that other models rarely achieve given the complex input texts that LISA was tested on.
+To show that this isn't just a one of example here are some other segmented images with the respective input next to it.
+//BILD//
+
 
 **Training:**
 Training LISA invovles a meticulous apporach of data formulation and parameter 	optimization. The training data is curated from various existing datasets. The data 	includes semantic segmentation datasets for multi-class labels, referring 	segmentation datasets for explicit object descriptions and visual question answering 	datasets to maintain the model's original capabilities.
