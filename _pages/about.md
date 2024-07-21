@@ -116,6 +116,7 @@ A reason for this efficent and fast training is certanly LoRA. LoRA or Low-Rang 
 The decoder now takes in all of the extracted visual data of the vision backbone and the embedding of the <SEG> token wich clarifys the need for segmentation. With all of this information it now constructs the final segmentation mask that is layed over the input image and presents this as our Output.
 
 **Resulting Image:**
+
 ![Final imgae result of Lisa](https://github.com/user-attachments/assets/e2aca212-df92-4ec9-9168-b0f430095c2d)
 
 In the final image the desired object is now marked with a red segmentation mask. The even more impressive part here though is not the part that is segmented but that part that isn't. Through the high accuracy the entire rest of the image stays unchanged and unsgemnted only highliting the actual desired object. A feat that other models rarely achieve given the complex input texts that LISA was tested on.
