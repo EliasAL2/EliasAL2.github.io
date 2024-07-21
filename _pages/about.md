@@ -185,18 +185,18 @@ Semantic segmentation  datasets played a crucial role in the training of the mod
 Pros and Cons
 ======
 **Pros:**
-1.	Integration of Language Understanding and Visual Perception: LISA seamlessly integrates language understanding with visual perception, enabling it to comprehend complex textual queries and produce fine-grained segmentation masks accurately.
+1.	Ease of Use: LISA as a model is really easy to use. This is mostly due to the fact that it has the capability to reason and understand and use real world knowledge. Through this the user does not have to hold back with their input and simplify it to make sure the model understands it. As mentioned LISA can understand complex and long input querys and you are even able to get an awnser out of a longer conversation.
   
-2.	End-to-End Training: The end-to-end training approach of LISA allows for efficient optimization of the model's parameters, leading to improved performance and generalization across different segmentation tasks.
+2.	Accurate results: LISAs results are incredibly accurate especially when compared to other previous models. LISA really only highlits that object that was intended by the text and does so with great accuracy.
 
-3.	Flexibility in Backbone Design: The model exhibits flexibility in vision backbone design choices, with the capability to utilize different backbone architectures such as ViT-H SAM and Mask2Former, providing versatility in addressing diverse segmentation challenges.
+3.  Helping further this field of research: The reasearchers with this study helped further the reasearche in this field tremendously. Not only by providing the powerful LISA model but also by providing a new extensive benchmark to test future models against.
 
 **Cons:**
 1.	Computational Resource Intensive: While its less than previous approaches LISA still requires significant computational resources, including high-performance GPUs and specialized training infrastructure, making it less accessible for smaller research teams or organizations with limited resources.
 
 2.	Dependency on Pre-trained Models: LISA heavily relies on pre-trained multimodal LLMs and vision backbones, necessitating access to large-scale pre-training datasets and computational resources for model initialization (and fine-tuning)
 
-3.	Limited Benchmarks: Due to the novelity of this reasearche topics the reasearchers had to present their own benchmarks. This of course can lead to intrinsic bias towards the own reaserach and further independent benchmarks would be needed to authenticate the results presented. 
+3.	Limited Benchmarks: Due to the novelity of this reasearche topics the reasearchers had to present their own benchmarks. For future reasearche it would be better to have more benchmarks to get a more diverse array of feedback from.
 
 Conclusion and Future
 ------
