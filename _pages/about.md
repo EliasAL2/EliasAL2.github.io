@@ -81,7 +81,10 @@ Segmentation.
 
 Piepline:
 ======
-![Pipline of Lisa](https://github.com/user-attachments/assets/634ac824-ff57-45e6-8ad5-2a3e3e710771)
+<p align="center">
+  <img src="images/Input of Lisa.png" width="300" title="Pipeline of Lisa">
+  <img src="images/Input of Lisa.png" width="300" alt="Pipeline of Lisa">
+</p>
 
 The Architecture of Lisa operates in a pipeline fashion. At one end the model is 	presented with an image and a (complex) textual instruction. These inputs then go through several diffrent components in order to finally present an image with a red segmentation mask layed over the desired object in the input image. The following explains this pipeline in more detail.
 
