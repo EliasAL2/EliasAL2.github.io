@@ -232,14 +232,6 @@ Pros and Cons
 
 Conclusion and Future
 ------
-Unfortunately is the end of this blog post, where we hopefully could give you a pretty good
-understanding of everything around Reasoning Segmentation and of course the wonderful
-LISA. We hope you have found this as interesting as we did when collecting all the information.
-LISA is a great breakthrough in modern image segmentation and allthough there are currently
-rather few everyday applications of it we are sure that this technology will have a lot of uses in
-the future. We can see it being utilized in different medical fields for example assistive
-technologies for individuals with visual impairments. By providing textual descriptions or
-instructions, users could interact with devices to segment and understand visual scenes,
-aiding in navigation, object recognition, and other tasks.
-It will most likely also play a major role in future smart assistants and many other application
-areas. The possibilities are pretty much endless.
+And with that we are at the end of this blog post. We hope you now have a you a good understanding of everything around reasoning segmentation and of course the wonderful LISA model. We hope you found this topic as interesting as we did (and still do). LISA marks an amazing breakthrough in modern image segmentation. Through it's abbility to reason and understand real world knowledge LISA has huge potential for the way we interact with machines and the way machines understand complex human requests. It's a trailblazer in it's field outperforming the competion and setting new standards. Even though it might take a while till every body has a LISA powered robot buttler that is bringing you the TV remote we see potential for LISA and by extension reasoning segmentation as a whole being utilized in different medical fields for example assistive technologies for individuals with visual impairments. By providing textual descriptions or instructions, users could interact with devices to segment and understand visual scenes, aiding in navigation, object recognition, and other tasks. It will most likely also play a major role in future smart assistants and many other areas that are connected to robotics. The possibilities are pretty much endless. We also want to make a note and praise the reasearchers for all the effort and energy they put into this field of reaserach not only by providing their powerful LISA model but also by providing a extensive benchmark that future reasearchers can use paired with all the information that was provide in this paper. 
+
+
