@@ -81,6 +81,32 @@ or world knowledge.
 LISA could only be such a breakthrough because of its exceptional ability for Reasoning
 Segmentation.
 
+Related Works
+======
+**1. SegNet:**
+
+SegNet is a cutting-edge deep learning architecture specifically designed for semantic image segmentation, which involves classifying each pixel in an image into a distinct category. This architecture features an encoder-decoder structure. The encoder, a streamlined version of conventional convolutional neural networks, captures essential image features through a series of convolution and pooling layers. The decoder then upsamples these features back to the original image resolution, ensuring accurate pixel classification.     
+A standout feature of SegNet is its use of pooling indices, which record the locations of maximum values during the pooling operations in the encoder. These indices are crucial in the decoder for precise upsampling, maintaining spatial accuracy and context. This method allows SegNet to be both memory-efficient and highly effective in tasks requiring detailed pixel-level information.       
+SegNet finds applications in various fields, from autonomous driving (for road scene understanding) to medical imaging (for organ segmentation) and satellite image analysis (for land cover classification). Its ability to deliver high-resolution, accurate segmentation makes it a valuable tool in these and other areas.      
+The picture below contains demonstrations of SegNet.
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/2000083b-c81a-404e-a571-10c0a98d226c" width="400" title="SegNet demonstration">
+</p>
+
+
+**2. Flamingo:**
+
+Flamingo is an advanced vision-language model designed to seamlessly integrate visual and textual data. It uses a combination of pre-trained vision and language models, allowing it to excel in a variety of tasks that require understanding and generating content based on both images and text.     
+The architecture of Flamingo includes a visual encoder to process images and a language model to handle text, filling the gap between these two types of data. Trained on extensive datasets containing both images and corresponding textual descriptions, Flamingo learns to understand the complex relationships between visual elements and their corresponding texts.    
+This capability makes Flamingo highly effective in applications such as image captioning, where it generates descriptive captions for images, and visual question answering, where it provides accurate answers based on the content of images.      
+Again, below is a little demonstration.
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/17116c91-5d9d-4452-8ef4-8c68ca9ec137" width="550" title="Flamingo demonstration">
+</p>
+
+
 Introducing LISA
 ======
 LISA is a large language instructed segementation assistant that introduces reasoning to segmenation systems. What sets LISA apart from other segmentaion models of it's kind is the fact that LISA's able to use reasoning and real world knowledge in order to understand the tasks that its given. This opens up huge potential for the way machines understand complex human requests.  
