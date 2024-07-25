@@ -11,7 +11,7 @@ Introduction
 ======
 AI models have come a long way in the past few years and so did perception systems. They have become so
 accurate, that they can execute all visual recognition tasks only rarely doing mistakes. the only problem is that 
-those systems used to require a user to give very specific instructions on what to identify in order be able to achieve it.
+those systems used to require a user to give very specific instructions on what to identify in order be able to achieve it.          
 A good system needs to be able to reason and understand users' intentions based on implicit instructions as shown below.
 
 <p align="center">
@@ -22,7 +22,8 @@ This blog post is about Reasoning Segmentation with a special focus on a model t
 this topic. 
 We will first explain important fields such as Image Segmentation, Reasoning Segmentation and
 Multi-Modal Large Language Models so everyone can understand this post even with little to no
-prior knowledge. After that we introduce you to this special model and its pipeline followed by an experiment, some pros and cons and the conclusion.
+prior knowledge. Then there are two related works and after that we introduce you to this special model and its pipeline followed by an experiment, 
+some pros and cons and lastly the conclusion.               
 We hope this blog post is valuable for fellow students and all other interested parties.
 
 
