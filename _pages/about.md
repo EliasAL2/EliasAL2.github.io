@@ -213,6 +213,16 @@ To justify the use of certain design choices the reasearchers performed an ablat
 Furthermore the Ablation study revealed that LoRA finetuning does not yield any significant performance improvments. It is actually inferior compared to the frozen one. (This could indicate potetntial limitations in fine-tuning stratetgies) SAM's pre-trained weight on the other hand significantly contributed to the performance and enhanced it substantualy.
 Semantic segmentation  datasets played a crucial role in the training of the model and without it performance woul drop a lot. They are therfore quit important for training. Data augmentation (i.e rephrasing text instructions) via GPT-3.5 also proved effective in boosting performance further.
 
+-------------------
+
+In the following experiments different methods and models were tested against LISA and even LISA itself was tested in multiple different variants. The training took place with only 8 NVIDIA 24G 3090 GPUs and with only 10,000 training steps. Additionally the researchers had to create their own benchmark for the testing because at the time of the study there was no existing representative one.
+
+**Reasoning Segmentation**
+In this first Reasoning Segmentation test the models were given implicit query texts, so the different models needed to actively reason or access world knowledge in order to fully understand the request and segment the correct objects.     
+For a more exact analysis short query, long query and overall performance were separately looked at.       
+No matter what LISA outperformed all other models annd even outperformed 7B version
+
+
 
 Pros and Cons
 ======
