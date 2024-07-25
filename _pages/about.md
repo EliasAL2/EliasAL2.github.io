@@ -81,7 +81,7 @@ Segmentation.
 
 Introducing LISA
 ======
-LISA is a large language instructed segementation assistant that introduces reasoning to segmenation systems. What sets LISA apart from other segmentaion models of it's kind is the fact that LISA's able to use reasoning and real world knowledge in order to understand the tasks that its given. 
+LISA is a large language instructed segementation assistant that introduces reasoning to segmenation systems. What sets LISA apart from other segmentaion models of it's kind is the fact that LISA's able to use reasoning and real world knowledge in order to understand the tasks that its given. This opens up huge potential for the way machines understand complex human requests.  
 
 Piepline:
 ======
