@@ -10,8 +10,8 @@ redirect_from:
 Introduction
 ======
 AI models have come a long way in the past few years and so did perception systems. They have become so
-accurate, that they can execute all visual recognition tasks only rarely doing mistakes. the only problem is that 
-those systems used to require a user to give very specific instructions on what to identify in order be able to achieve it.          
+accurate, that they can execute all visual recognition tasks only rarely making mistakes. the only problem is that 
+those systems used to require a user to give very specific instructions on what to identify in order to be able to achieve it.          
 A good system needs to be able to reason and understand users' intentions based on implicit instructions as shown below.
 
 <p align="center">
@@ -21,9 +21,9 @@ A good system needs to be able to reason and understand users' intentions based 
 This blog post is about Reasoning Segmentation with a special focus on a model that redefined the boundaries of
 this topic. 
 We will first explain important fields such as Image Segmentation, Reasoning Segmentation and
-Multi-Modal Large Language Models so everyone can understand this post even with little to no
-prior knowledge. Then there are two related works and after that we introduce you to this special model and its pipeline followed by an experiment, 
-some pros and cons and lastly the conclusion.               
+Multi-Modal Large Language Models so everyone can understand this post even with little
+prior knowledge. Then there are two related works and after that, we introduce you to this special model and its pipeline followed by an experiment, 
+some pros and cons, and lastly the conclusion.               
 We hope this blog post is valuable for fellow students and all other interested parties.
 
 
@@ -33,10 +33,10 @@ Image Segmentation is a computer vision technique that involves partitioning an 
 segments or regions to simplify its representation and make it more meaningful and easier to analyze.
 The goal of segmentation is to divide an image into parts with similar attributes such as color, texture
 or intensity, while ensuring that each part corresponds to a meaningful object or region with the image.
-There are many different methods for performing image segmentation. LISA primarly utilizes a
+There are many different methods for performing image segmentation. LISA primarily utilizes a
 technique called Deep Learning, which uses raw inputs to learn hierarchical representations of data.
 These hierarchical representations enable deep learning models to learn complex patterns and
-relationships within data, making it highly effective for image recognition and with that segmentation.
+relationships within data, making it highly effective for image recognition and segmentation.
 
 Why is Image Segmantation important?
 ======
@@ -50,29 +50,29 @@ Another significant application area is image compression. Segmentation can be u
 regions of interest within an image, allowing for more efficient compression and transmission of
 visual data. By focusing on the most relevant parts of the image, unnecessary information can be
 discarded or compressed, leading to reduced storage and bandwidth requirements.
-A specific application, where image segmentation comes in place nowdays is hospitals. It is essential
-for medical personnel to use image segmentation to find tumors and deseases, which you wouldn't be
+A specific application, where image segmentation comes in place nowadays is hospitals. It is essential
+for medical personnel to use image segmentation to find tumors and diseases, which you wouldn't be
 able to detect otherwise.
 In addition to that, autonomous vehicles wouldn't be on the market without image segmentation.
-Lacking it, they wouldn't be able to detect pedestrians, obstacles or even be able to hold their lane.
+Lacking it, they wouldn't be able to detect pedestrians and obstacles or even be able to hold their lane.
 These are only a few fields, where image segmentation is already in use with great importance and
 there are many more.
 
 What is a Multi-Modal Large Language Model?
 ======
-In order to know what a Multi-Modal Large Language Model is, you need to know what a Large
-Language Model is first. A Large Language Model or in short LLM is a type of artificial Intelligence
+To know what a Multi-Modal Large Language Model is, you need to know what a Large
+Language Model is first. A Large Language Model or short LLM is a type of artificial Intelligence
 model that is capable of understanding and generating human-like text at a large scale. The most
 renowned LLM is OpenAI's GPT, which is also arguably the most advanced technology
 that has been published in this field yet.
 So what is a Multi-Modal Large Language Model now? A Multi-Modal LLM is nothing else than an
 LLM equipped with the ability to process and generate content across multiple modalities, not
-just text, but also audio, images and video. In case of LISA, we provide language instructions
+just text, but also audio, images and video. In the case of LISA, we provide language instructions
 and it identifies the corresponding parts in the other modality: an image.
 
-What is Reasoning Segmantation?
+What is Reasoning Segmentation?
 ======
-Reasoning Segmentation is the next big step in segmentation, because The mechanism is now
+Reasoning Segmentation is the next big step in segmentation because The mechanism is now
 not only able to recognize an object and give its name (e.g., "the trash can"), it is also capable of
 giving far more intricate descriptions (e.g., "something that the garbage should be put into") or
 even longer sentences (e.g., ”After cooking, consuming food, and preparing for food, where can
@@ -109,7 +109,7 @@ Again, below is a little demonstration.
 
 Introducing LISA
 ======
-LISA is a large language-instructed segmentation assistant that introduces reasoning to modern segmentation systems. What sets LISA apart from other segmentation models of its kind is the fact that LISA is able to use complex reasoning and real-world knowledge in order to fulfill the tasks that it is given, even developing robust zero-shot capabilities. Not only that, but LISA is also able to output complete explanatory answers and is even capable of having entire Multi-Turn conversations with a user. This opens up huge potential for the way machines understand complex human requests.
+LISA is a large language-instructed segmentation assistant that introduces reasoning to modern segmentation systems. What sets LISA apart from other segmentation models of its kind is the fact that LISA can use complex reasoning and real-world knowledge to fulfill the tasks that it is given, even developing robust zero-shot capabilities. Not only that, but LISA is also able to output complete explanatory answers and is even capable of having entire Multi-Turn conversations with a user. This opens up huge potential for the way machines understand complex human requests.
 
 Piepline:
 ======
@@ -198,35 +198,19 @@ To fine-tune the model efficiently while at the same time preserving its learned
 
 Experiment
 ======
-⦁	**Network Architectuire:** LISA leveraged a multimodal LLM base, spefifically LLaVA-7B-v1-1 or LLaVA-13B-v1-1 coupled with the ViT-SAM backbone for vision processing. This architecture enables the integration of language understanding and visual perception.
 
-⦁	**Training:** For this experiment the training was executed on high-performance hardware infrastructure, utilizing 8 NVIDIA 24G 3090 GPUs and the deepspeed engine. Furthermore AdamW optimizer was employed with carefully chosen hyperparameters ensuring stable and efficient training. The evalutation metrics include gloU and cloU with a preference for gloU due to its stability and suitability for assesing segmentation quality. gloU is the average of all per-image Intersection-over-Unions. cloU is the cumulativce intersection over the cumulative union.
-
-⦁	**Results:** Lisa exhibited remarkable performance in reasoning segmentation tasks, surpassing existing works by achieving more than a 20% boost in gloU. For this massive succes the models proficiency in understanding implicit queries and leveraging multimodal LLMs certanly played a pivitol role.
-
-⦁	**Vanilla referring segemnation:** To further prove the performance the reasearchers also let the model undergo a test in a vanilla referring segmenation task. Here once again LISA outperforms state-of-the-art methods across various benchmarks and is the best one in all but two of the scores.
-
-
-Ablation
-======
-To justify the use of certain design choices the researchers performed an ablation study. Firstly they explain how while SAM emerged as the preferred vision backbone others would be also applicable in the presented framework and the choice is therefore adaptable. SAM does however outperform other vision-backbone models like Mask2Former-Swin-L. Still with using Mask2Former-Swin-L as the vision backbone the presented framework still outperforms previous works such as X-Decoder.
-Furthermore, the Ablation study revealed that LoRA finetuning does not yield any significant performance improvements. It is actually inferior compared to the frozen one. (This could indicate potential limitations in fine-tuning strategies) SAM's pre-trained weight on the other hand significantly contributed to the performance and enhanced it substantially.
-Semantic segmentation datasets played a crucial role in the training of the model and without it, performance would drop a lot. They are therefore quite important for training. Data augmentation (i.e. rephrasing text instructions) via GPT-3.5 also proved effective in boosting performance further.
-
--------------------
-
-In the following experiments different methods and models were tested against LISA and even LISA itself was tested in multiple different variants. The training took place with only 8 NVIDIA 24G 3090 GPUs and with only 10,000 training steps. Additionally the researchers had to create their own benchmark for the testing because at the time of the study there was no existing representative one.
+In the following experiments, different methods and models were tested against LISA and even LISA itself was tested in multiple different variants. The training took place with only 8 NVIDIA 24G 3090 GPUs and with only 10,000 training steps. Additionally, the researchers had to create their own benchmark for the testing because at the time of the study, there was no existing representative one.
 
 **Reasoning Segmentation:**
 
 In this first Reasoning Segmentation test the models were given implicit query texts, so the different models needed to actively reason or access world knowledge in order to fully understand the request and segment the correct objects.     
-For a more exact analysis short query, long query and overall performance were separately looked at, but no matter what LISA completely outperformed all other models annd even outperformed the not finetuned 7B version of itself. The other models were just unable to truly uderstanding the query.
+For a more exact analysis short query, long query and overall performance were separately looked at, but no matter what LISA completely outperformed all other models, even the not finetuned 7B version of itself. The other models were just unable to truly understanding the query.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/47ae958a-7c00-4218-b743-b094a2da1f1c" width="600" title="Reasoning Segmentation Result">
 </p>
 
-The following picture is an illustration of the Reasoning Segmentation test showing how other models struggled to segment the right objects when given complex and implicit querys.
+The following picture is an illustration of the Reasoning Segmentation test, showing how other models struggled to segment the right objects when given complex and implicit queries. Only LISA managed to get the right ones.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/3046da4f-e9c1-467c-88b7-baa41c4a054d" width="700" title="Reasoning Segmentation Illustration">
@@ -235,7 +219,7 @@ The following picture is an illustration of the Reasoning Segmentation test show
 
 **Vanilla Referring Segmentation:**
 
-The Vanilla Referring Segmentation test was carried out to show that LISA is an overall capable model and even able to beat the state-of-the-art models when given explicit querys across different benchmarks.
+The Vanilla Referring Segmentation test was carried out to show that LISA is an overall capable model and even able to beat the state-of-the-art models when given explicit queries across different benchmarks.
 Once again the researchers were able to celebrate seeing LISA prevailing against the other models in all but two of the eight categories.
 
 <p align="center">
