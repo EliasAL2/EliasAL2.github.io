@@ -79,6 +79,10 @@ or world knowledge.
 LISA could only be such a breakthrough because of its exceptional ability for Reasoning
 Segmentation.
 
+Introducing LISA
+======
+LISA is a large language instructed segementation assistant that introduces reasoning to segmenation systems. What sets LISA apart from other segmentaion models of it's kind is the fact that LISA's able to use reasoning and real world knowledge in order to understand the tasks that its given. 
+
 Piepline:
 ======
 
