@@ -217,10 +217,39 @@ Semantic segmentation datasets played a crucial role in the training of the mode
 
 In the following experiments different methods and models were tested against LISA and even LISA itself was tested in multiple different variants. The training took place with only 8 NVIDIA 24G 3090 GPUs and with only 10,000 training steps. Additionally the researchers had to create their own benchmark for the testing because at the time of the study there was no existing representative one.
 
-**Reasoning Segmentation**
+**Reasoning Segmentation:**
+
 In this first Reasoning Segmentation test the models were given implicit query texts, so the different models needed to actively reason or access world knowledge in order to fully understand the request and segment the correct objects.     
-For a more exact analysis short query, long query and overall performance were separately looked at.       
-No matter what LISA outperformed all other models annd even outperformed 7B version
+For a more exact analysis short query, long query and overall performance were separately looked at, but no matter what LISA completely outperformed all other models annd even outperformed the not finetuned 7B version of itself. The other models were just unable to truly uderstanding the query.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/47ae958a-7c00-4218-b743-b094a2da1f1c" width="600" title="Reasoning Segmentation Result">
+</p>
+
+The following picture is an illustration of the Reasoning Segmentation test showing how other models struggled to segment the right objects when given complex and implicit querys.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3046da4f-e9c1-467c-88b7-baa41c4a054d" width="700" title="Reasoning Segmentation Illustration">
+</p>
+
+
+**Vanilla Referring Segmentation:**
+
+The Vanilla Referring Segmentation test was carried out to show that LISA is an overall capable model and even able to beat the state-of-the-art models when given explicit querys across different benchmarks.
+Once again the researchers were able to celebrate seeing LISA prevailing against the other models in all but two of the eight categories.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/dfe5c229-ef38-4f7f-b0fb-80c95867dbe9" width="600" title="Vanilla Referring Segmentation Result">
+</p>
+
+**Ablation Study:**
+
+To justify the use of certain design choices the researchers performed an Ablation Study.      
+Firstly, they explain how while SAM emerged as the preferred vision backbone others would be also applicable in the presented framework and the choice is therefore adaptable. SAM does however outperform the other vision-backbone models.   
+Furthermore, the Ablation study revealed that LoRA finetuning does not yield any significant performance improvements. It is actually inferior compared to the frozen one. (This could indicate potential limitations in fine-tuning strategies)     
+SAM Pre-trained Weight on the other hand significantly contributed to the performance and enhanced it substantially.   
+Semantic segmentation datasets played a crucial role in the training of the model and without it, performance would drop a lot. They are therefore quite important for training.       
+Data augmentation (i.e. rephrasing text instructions) via GPT-3.5 also proved effective in boosting performance further.
 
 
 
