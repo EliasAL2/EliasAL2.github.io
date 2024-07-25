@@ -9,21 +9,22 @@ redirect_from:
 
 Introduction
 ======
-Humans want modern technology to be as flexible as possible and an important part in that are
-perception systems and their ability to execute visual recognition tasks. Those systems used to
-require a user to give very specific instructions on what to identify in order be able to archieve it.
-A good system needs to be able to reason and understand users' intentions based on implicit
-instructions.
-This blog post is about Reasoning Segmentation with focus on LISA, a large Language Instructed
-Segmentation Assistant that was a groundbreaking innovation and redefined the boundaries of
-this topic. LISA is so exceptional because it's able to produce accurate segmentation masks when given
-a complicated description using complex reasoning and world knowledge, which was never possible
-like that before.
+AI models have come a long way in the past few years and so did perception systems. They have become so
+accurate, that they can execute all visual recognition tasks only rarely doing mistakes. the only problem is that 
+those systems used to require a user to give very specific instructions on what to identify in order be able to achieve it.
+A good system needs to be able to reason and understand users' intentions based on implicit instructions as shown below.
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/d5590401-24b4-400c-949b-25a3c9fb69aa" width="400" title="interaction examples">
+</p>
+
+This blog post is about Reasoning Segmentation with a special focus on a model that redefined the boundaries of
+this topic. 
 We will first explain important fields such as Image Segmentation, Reasoning Segmentation and
 Multi-Modal Large Language Models so everyone can understand this post even with little to no
-prior knowledge. After that we present a benchmark for Reasoning Segmentation and all the key info for
-LISA followed by an abalation and an evaluation.
+prior knowledge. After that we introduce you to this special model and its pipeline followed by an experiment, some pros and cons and the conclusion.
 We hope this blog post is valuable for fellow students and all other interested parties.
+
 
 What is Image Segmantation?
 ======
