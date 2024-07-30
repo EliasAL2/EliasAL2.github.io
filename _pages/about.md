@@ -67,7 +67,7 @@ These are only a few fields, where image segmentation is already in use and ther
 <img src="https://github.com/user-attachments/assets/72235632-7c95-4a0e-8b79-1655cbc8c19d" width="400" title="interaction examples">
 </p>
 <p align="center">
-  [3] Example of Image Segmentation
+  Image taken from [3] Example of Image Segmentation
 </p>
 
 What is a Multi-Modal Large Language Model?
