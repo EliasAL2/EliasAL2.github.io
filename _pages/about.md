@@ -272,10 +272,10 @@ Once again the researchers were able to celebrate seeing LISA prevailing against
 **Ablation Study:**
 
 To justify the use of certain design choices the researchers performed an **Ablation Study**.      
-Firstly, they explain how while **SAM** emerged as the **preferred vision backbone** others would be also applicable in the presented framework and the choice is therefore adaptable. SAM does however outperform the other vision-backbone models. 
-Furthermore, the Ablation study revealed that LoRA finetuning does not yield any significant performance improvements on SAM. It is actually inferior compared to the frozen one. (This could indicate potential limitations in fine-tuning strategies)     
-SAM Pre-trained Weight on the other hand significantly contributed to the performance and enhanced it substantially.   
-Semantic segmentation datasets played a crucial role in the training of the model and without it, performance would drop a lot. They are therefore quite important for training.       
+Firstly, they explain how while **SAM** emerged as the **preferred vision backbone** others would be also applicable in the presented framework and the choice is therefore adaptable. SAM does however **outperform the other vision-backbone models**. 
+Furthermore, the Ablation study revealed that **LoRA finetuning does not yield any significant performance improvements on SAM**. It is actually inferior compared to the frozen one. (This could indicate potential limitations in fine-tuning strategies)     
+**SAM Pre-trained Weight** on the other hand **significantly contributed** to the performance and enhanced it substantially.   
+**Semantic segmentation datasets** played a crucial role in the training of the model and without it, performance would drop a lot. They are therefore quite important for training.       
 **Data augmentation** (i.e. rephrasing text instructions) via GPT-3.5 also proved effective in boosting performance further.
 
 
@@ -283,7 +283,7 @@ Semantic segmentation datasets played a crucial role in the training of the mode
 Pros and Cons
 ======
 **Pros:**
-1.	Ease of Use: LISA as a model is really **easy to use**. This is mostly due to the fact that it has the capability to reason and understand and use real-world knowledge. Through this, the user does not have to hold back with their input and simplify it to make sure the model understands it. As mentioned LISA can understand complex and long input queries and you are even able to get an answer out of a longer conversation.
+1.	Ease of Use: LISA as a model is really **easy to use**. This is mostly due to the fact that it has the capability to reason and understand and use real-world knowledge. Through this, the **user does not have to hold back with their input** and simplify it to make sure the model understands it. As mentioned LISA can understand complex and long input queries and you are even able to get an answer out of a longer conversation.
   
 2.	Accurate results: LISAs results are **incredibly accurate** especially when compared to other previous models. LISA really only highlights the object that was intended by the text and does so with great accuracy.
 
