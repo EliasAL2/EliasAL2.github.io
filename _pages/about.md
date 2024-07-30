@@ -9,27 +9,26 @@ redirect_from:
 
 Introduction
 ======
-AI models have come a long way in the past few years and so did perception systems. They have become so
-accurate, that they can execute all visual recognition tasks only rarely making mistakes. the only problem is that 
-those systems used to require a user to give very specific instructions on what to identify in order to be able to achieve it.          
-A good system needs to be able to reason and understand users' intentions based on implicit instructions as shown below.
+**AI models** have come a long way in the past few years and so did perception systems. They have become so
+accurate, one could think that they can execute all visual recognition tasks only rarely making mistakes. The only problem is that those systems used to require a user to give very **specific instructions** on what to identify in order to be able to achieve it.          
+A good system needs to be able to **reason and understand users' intentions** based on implicit instructions as shown below.
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/d5590401-24b4-400c-949b-25a3c9fb69aa" width="400" title="interaction examples">
 </p>
 
-This blog post is about Reasoning Segmentation with a special focus on a model that redefined the boundaries of
+This blog post is about **Reasoning Segmentation** with a special focus on a model that redefined the boundaries of
 this topic. 
-We will first explain important fields such as Image Segmentation, Reasoning Segmentation and
-Multi-Modal Large Language Models so everyone can understand this post even with little
-prior knowledge. Then there are two related works and after that, we introduce you to this special model and its pipeline followed by an experiment, 
-some pros and cons, and lastly the conclusion.               
+We will first explain important fields such as **Image Segmentation**, **Reasoning Segmentation** and
+**Multi-Modal Large Language Models** so everyone can understand this post even with little
+prior knowledge. Then there are two **related works** and after that, we introduce you to this special **model** and its **pipeline** followed by an **experiment**, 
+some **pros and cons**, and lastly the **conclusion** and a glance at the **future** of this topic.               
 We hope this blog post is valuable for fellow students and all other interested parties.
 
 
 What is Image Segmantation?
 ======
-Image Segmentation is a computer vision technique that involves partitioning an image into multiple
+Image Segmentation is a **computer vision technique** that involves partitioning an image into multiple
 segments or regions to simplify its representation and make it more meaningful and easier to analyze.
 The goal of segmentation is to divide an image into parts with similar attributes such as
 
@@ -224,7 +223,7 @@ The decoder now takes in all of the extracted visual data of the vision backbone
 </p>
 
 
-In the final image, the desired object is now marked with a red segmentation mask. The even more impressive part here though is not the part that is segmented but that part that isn't. Through the **high accuracy**, the entire rest of the image stays unchanged and unsegmented only highlighting the actual desired object. A feat that other models rarely achieve given the complex input texts that LISA was tested on.
+In the final image, the desired object is now **marked with a red segmentation mask**. The even more impressive part here though is not the part that is segmented but that part that isn't. Through the **high accuracy**, the entire rest of the image stays unchanged and unsegmented only highlighting the actual desired object. A feat that other models rarely achieve given the complex input texts that LISA was tested on.
 
 To show that this isn't just one example here are some other segmented images with the respective input next to it.
 <p align="center">
@@ -243,12 +242,12 @@ To fine-tune the model efficiently while at the same time preserving its learned
 Experiment
 ======
 
-In the following experiments, different methods and models were tested against LISA and even LISA itself was tested in multiple different variants. The training took place with only 8 NVIDIA 24G 3090 GPUs and with only 10,000 training steps. Additionally, the researchers had to create their own benchmark for the testing because at the time of the study, there was no existing representative one.
+In the following experiments, different methods and models were tested against LISA and even LISA itself was tested in **multiple different variants**. The training took place with only 8 NVIDIA 24G 3090 GPUs and with only 10,000 training steps. Additionally, the researchers had to **create their own benchmark** for the testing because at the time of the study, there was no existing representative one.
 
 **Reasoning Segmentation:**
 
-In this first Reasoning Segmentation test the models were given implicit query texts, so the different models needed to actively reason or access world knowledge in order to fully understand the request and segment the correct objects.     
-For a more exact analysis short query, long query and overall performance were separately looked at, but no matter what LISA completely outperformed all other models, even the not finetuned 7B version of itself. The other models were just unable to truly understanding the query.
+In this first Reasoning Segmentation test the models were given **implicit query texts**, so the different models needed to actively reason or access world knowledge in order to fully understand the request and segment the correct objects.     
+For a more exact analysis short query, long query and overall performance were looked at separately, but no matter what LISA completely outperformed all other models, even the not finetuned 7B version of itself. The other models were just unable to truly understanding the query.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/47ae958a-7c00-4218-b743-b094a2da1f1c" width="600" title="Reasoning Segmentation Result">
@@ -263,7 +262,7 @@ The following picture is an illustration of the Reasoning Segmentation test, sho
 
 **Vanilla Referring Segmentation:**
 
-The Vanilla Referring Segmentation test was carried out to show that LISA is an overall capable model and even able to beat the state-of-the-art models when given explicit queries across different benchmarks.
+The Vanilla Referring Segmentation test was carried out to show that LISA is an overall capable model and even able to beat the state-of-the-art models when given **explicit queries** across different benchmarks.
 Once again the researchers were able to celebrate seeing LISA prevailing against the other models in all but two of the eight categories.
 
 <p align="center">
@@ -272,12 +271,12 @@ Once again the researchers were able to celebrate seeing LISA prevailing against
 
 **Ablation Study:**
 
-To justify the use of certain design choices the researchers performed an Ablation Study.      
-Firstly, they explain how while SAM emerged as the preferred vision backbone others would be also applicable in the presented framework and the choice is therefore adaptable. SAM does however outperform the other vision-backbone models.   
-Furthermore, the Ablation study revealed that LoRA finetuning does not yield any significant performance improvements. It is actually inferior compared to the frozen one. (This could indicate potential limitations in fine-tuning strategies)     
+To justify the use of certain design choices the researchers performed an **Ablation Study**.      
+Firstly, they explain how while **SAM** emerged as the **preferred vision backbone** others would be also applicable in the presented framework and the choice is therefore adaptable. SAM does however outperform the other vision-backbone models. 
+Furthermore, the Ablation study revealed that LoRA finetuning does not yield any significant performance improvements on SAM. It is actually inferior compared to the frozen one. (This could indicate potential limitations in fine-tuning strategies)     
 SAM Pre-trained Weight on the other hand significantly contributed to the performance and enhanced it substantially.   
 Semantic segmentation datasets played a crucial role in the training of the model and without it, performance would drop a lot. They are therefore quite important for training.       
-Data augmentation (i.e. rephrasing text instructions) via GPT-3.5 also proved effective in boosting performance further.
+**Data augmentation** (i.e. rephrasing text instructions) via GPT-3.5 also proved effective in boosting performance further.
 
 
 
