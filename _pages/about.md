@@ -83,7 +83,7 @@ that has been published in this field yet.
 <img src="https://github.com/user-attachments/assets/6140fe63-6eb6-48b6-ac54-0fabe5e7869e" width="400" title="interaction examples">
 </p>
 <p align="center">
-  [6] Example of a Multi-Modal-LLM
+  Image taken from [6] Example of a Multi-Modal-LLM
 </p>
 
 So what is a **Multi-Modal Large Language Model** then? A Multi-Modal LLM is nothing else than an
@@ -113,7 +113,9 @@ The picture below contains demonstrations of SegNet.
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/2000083b-c81a-404e-a571-10c0a98d226c" width="400" title="SegNet demonstration">
-  [4]
+</p>
+<p align="center">
+  Image taken from [4]
 </p>
 
 
@@ -127,9 +129,10 @@ Again, below is a little demonstration.
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/17116c91-5d9d-4452-8ef4-8c68ca9ec137" width="550" title="Flamingo demonstration">
-  [5]
 </p>
-
+<p align="center">
+  Image taken from [5]
+</p>
 
 
 Introducing LISA
@@ -193,9 +196,10 @@ The training of this MMLLM took a comparably small amount of time only taking 3 
 </p>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e6e76570-9007-4c7b-843c-3762489f7f6a" width="300" title="LoRA of LoRA">
-  [2]
 </p>
-
+<p align="center">
+  Image taken from [2]
+</p>
 
 A reason for this efficient and fast training is certainly LoRA[2]. LoRA or Low-Rang Adaptation is used to **perform efficient fine-tuning of language models to adapt to different kinds of tasks**. It enables effective **adjustments of the model without major changes**. It accomplishes this with two key factors. 
 First up it freezes the pre-trained weight so it doesn't have to be refreshed on every single change. 
