@@ -63,6 +63,13 @@ In addition to that, autonomous vehicles wouldn't be able to get on the market w
 Lacking it, they wouldn't be able to detect pedestrians and obstacles or even be able to hold their lane.
 These are only a few fields, where image segmentation is already in use and there are many more.
 
+<p align="center">
+<img src="https://github.com/user-attachments/assets/72235632-7c95-4a0e-8b79-1655cbc8c19d" width="400" title="interaction examples">
+</p>
+<p align="center">
+  [3] Example of Image Segmentation
+</p>
+
 What is a Multi-Modal Large Language Model?
 ======
 To know what a Multi-Modal Large Language Model is, you need to know what a **Large
@@ -70,6 +77,15 @@ Language Model** is first. A Large Language Model or short LLM is a type of arti
 model that is capable of understanding and generating human-like text at a large scale. The most
 renowned LLM is **OpenAI's GPT**, which is also arguably one of the most advanced technologies
 that has been published in this field yet.
+
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/6140fe63-6eb6-48b6-ac54-0fabe5e7869e" width="400" title="interaction examples">
+</p>
+<p align="center">
+  [6] Example of a Multi-Modal-LLM
+</p>
+
 So what is a **Multi-Modal Large Language Model** then? A Multi-Modal LLM is nothing else than an
 LLM equipped with the ability to process and generate content across **multiple modalities**, not
 just text, but also audio, images and video. In the case of LISA, we provide language instructions
@@ -90,7 +106,7 @@ Related Works
 ======
 **1. SegNet:**
 
-SegNet is a cutting-edge deep learning architecture specifically designed for semantic image segmentation, which involves classifying each pixel in an image into a distinct category. This architecture features an encoder-decoder structure. The encoder, a streamlined version of conventional convolutional neural networks, captures essential image features through a series of convolution and pooling layers. The decoder then upsamples these features back to the original image resolution, ensuring accurate pixel classification.     
+SegNet[4] is a cutting-edge deep learning architecture specifically designed for semantic image segmentation, which involves classifying each pixel in an image into a distinct category. This architecture features an encoder-decoder structure. The encoder, a streamlined version of conventional convolutional neural networks, captures essential image features through a series of convolution and pooling layers. The decoder then upsamples these features back to the original image resolution, ensuring accurate pixel classification.     
 A standout feature of SegNet is its use of pooling indices, which record the locations of maximum values during the pooling operations in the encoder. These indices are crucial in the decoder for precise upsampling, maintaining spatial accuracy and context. This method allows SegNet to be both memory-efficient and highly effective in tasks requiring detailed pixel-level information.       
 SegNet finds applications in various fields, from autonomous driving (for road scene understanding) to medical imaging (for organ segmentation) and satellite image analysis (for land cover classification). Its ability to deliver high-resolution, accurate segmentation makes it a valuable tool in these and other areas.      
 The picture below contains demonstrations of SegNet.
@@ -104,7 +120,7 @@ The picture below contains demonstrations of SegNet.
 
 **2. Flamingo:**
 
-Flamingo is an advanced vision-language model designed to seamlessly integrate visual and textual data. It uses a combination of pre-trained vision and language models, allowing it to excel in a variety of tasks that require understanding and generating content based on both images and text.     
+Flamingo[5] is an advanced vision-language model designed to seamlessly integrate visual and textual data. It uses a combination of pre-trained vision and language models, allowing it to excel in a variety of tasks that require understanding and generating content based on both images and text.     
 The architecture of Flamingo includes a visual encoder to process images and a language model to handle text, filling the gap between these two types of data. Trained on extensive datasets containing both images and corresponding textual descriptions, Flamingo learns to understand the complex relationships between visual elements and their corresponding texts.    
 This capability makes Flamingo highly effective in applications such as image captioning, where it generates descriptive captions for images, and visual question answering, where it provides accurate answers based on the content of images.      
 Again, below is a little demonstration.
@@ -130,7 +146,7 @@ Piepline:
 The Architecture of Lisa operates in a **pipeline fashion**. At one end the model is presented with an image and a (complex) textual instruction. These inputs then go through several different components in order to finally present an image with a red segmentation mask laid over the desired object in the input image. The following explains this pipeline in more detail.
 
 
-
+  
 **Input:**
 
 <p align="center">
@@ -144,7 +160,7 @@ Now with LISA, this is no longer the case. For LISAs input query one is now able
 What is it exactly that makes Lisa capable of all these things? It's the **ability to reason and to understand and use real-world knowledge**. With these, it can understand even the most complex questions and still give accurate answers. How exactly these reasoning capabilities come to be is through the several different components of LISA.
 
 
-
+  
 **Vision Encoder:**
 
 <p align="center">
@@ -153,12 +169,12 @@ What is it exactly that makes Lisa capable of all these things? It's the **abili
 
 The Vision Encoder or Vision Backbone is the first of these components. It takes the input image and extracts all of the important information out of it. It then transforms this data so it can be used in the next steps. For LISA the researchers decided to use **SAM** as the Vision Backbone. However, they also want to clarify that other similar models would have been also possible to be used here meaning this component is very flexible. Still, the researchers decided to use SAM. 
 
-SAM or the Segment Anything Model is an extremely powerful model for image segmentation tasks. It was trained on the largest segmentation dataset so far. 
+SAM[3] or the Segment Anything Model is an extremely powerful model for image segmentation tasks. It was trained on the largest segmentation dataset so far. 
 One very important capability of SAM for the LISA model is its **zero-shot capability**. This means SAM is able to work with images it has never seen before. Obviously a very important feature for LISA since it should also be able to work with images it has never seen before at still segment the target object accurately. 
 Another important aspect of SAM is that it was built with being **easily transferable** to new tasks in mind. Meaning its very easy to incorporate SAM into other models and use its capabilities for specific tasks.
 
 
-
+  
 **Multi-Modal LLM:**
 
 <p align="center">
@@ -170,7 +186,7 @@ This toke signifies the **request for segmentation**. So when the request for se
 The training of this MMLLM took a comparably small amount of time only taking 3 days and was relatively resource inexpensive.
 
 
-
+  
 **LoRA:**
 <p align="center">
   <img src="https://github.com/user-attachments/assets/ac818b69-5e37-4f40-b492-25849f25db6f" width="400" title="LoRA of Lisa">
@@ -181,12 +197,12 @@ The training of this MMLLM took a comparably small amount of time only taking 3 
 </p>
 
 
-A reason for this efficient and fast training is certainly LoRA. LoRA or Low-Rang Adaptation is used to **perform efficient fine-tuning of language models to adapt to different kinds of tasks**. It enables effective **adjustments of the model without major changes**. It accomplishes this with two key factors. 
+A reason for this efficient and fast training is certainly LoRA[2]. LoRA or Low-Rang Adaptation is used to **perform efficient fine-tuning of language models to adapt to different kinds of tasks**. It enables effective **adjustments of the model without major changes**. It accomplishes this with two key factors. 
 First up it freezes the pre-trained weight so it doesn't have to be refreshed on every single change. 
 Secondly, it injects trainable matrices with low-rank structures into every layer of the model. This in turn reduces the amount of parameters that need to be trained.
 
 
-
+  
 **Decoder:**
 
 <p align="center">
@@ -196,7 +212,7 @@ Secondly, it injects trainable matrices with low-rank structures into every laye
 
 The decoder now takes in all of the extracted visual data of the vision backbone and the embedding of the <SEG> token which clarifies the need for segmentation. With all of this information, it now **constructs the final segmentation mask** that is laid over the input image and presents this as our Output.
 
-
+  
 **Resulting Image:**
 
 <p align="center">
@@ -211,7 +227,7 @@ To show that this isn't just one example here are some other segmented images wi
   <img src="https://github.com/user-attachments/assets/9c0414c4-595c-4763-adf6-b532dbbe1b72" width="500" title="Resulting Image of Lisa">
 </p>
 
-
+  
 **Training:**
 Training LISA involves a meticulous approach of **data formulation** and **parameter optimization**. The training data is curated from various existing datasets. The data includes semantic segmentation datasets for multi-class labels, referring segmentation datasets for explicit object descriptions and visual question-answering datasets to maintain the model's original capabilities.
 
@@ -293,8 +309,9 @@ We also want to make a note and praise the researchers for all the effort and en
 
 References
 ---------
-[1]LISA: Reasoning Segmentation Via Large Language Model, Arxiv 2023
+[1]Xin Lai, Zhuotao Tian, Yukang Chen, Yanwei Li, Yuhui Yuan, Shu Liu, & Jiaya Jia. "Lisa: Reasoning segmentation via large language model." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2024.
 [2]Edward J Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen- Zhu, Yuanzhi Li, Shean Wang, Lu Wang, and Weizhu Chen. Lora: Low-rank adaptation of large language models.arXiv:2106.09685, 2021. 
 [3]Alexander Kirillov, Eric Mintun, Nikhila Ravi, Hanzi Mao, Chloe Rolland, Laura Gustafson, Tete Xiao, Spencer Whitehead, Alexander C Berg, Wan-Yen Lo, et al. Segment anything. arXiv:2304.02643, 2023.
 [4]Vijay Badrinarayanan, Alex Kendall, and Roberto Cipolla. Segnet: A deep convolutional encoder- decoder architecture for image segmentation. TPAMI, 2017
 [5]Jean-Baptiste Alayrac, Jeff Donahue, Pauline Luc, Antoine Miech, Iain Barr, Yana Hasson, Karel Lenc, Arthur Mensch, Katherine Millican, Malcolm Reynolds, et al. Flamingo: a visual language model for few-shot learning. NeurIPS, 2022
+[6]Shengqqiong Wu, Hao Fei, Leigang Qu, Wei Ji, & Tat-Seng Chua. "Next-gpt: Any-to-any multimodal llm." arXiv preprint arXiv:2309.05519 (2023)
