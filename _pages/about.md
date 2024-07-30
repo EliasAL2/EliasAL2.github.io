@@ -10,7 +10,7 @@ redirect_from:
 Introduction
 ======
 **AI models** have come a long way in the past few years and so did perception systems. They have become so
-accurate, one could think that they can execute all visual recognition tasks only rarely making mistakes. The only problem is that those systems used to require a user to give very **specific instructions** on what to identify in order to be able to achieve it.          
+accurate, that one could think they can execute all visual recognition tasks only rarely making mistakes. The only problem is that those systems used to require a user to give very **specific instructions** on what to identify to be able to achieve it.          
 A good system needs to be able to **reason and understand users' intentions** based on implicit instructions as shown below.
 
 <p align="center">
@@ -26,7 +26,7 @@ some **pros and cons**, and lastly the **conclusion** and a glance at the **futu
 We hope this blog post is valuable for fellow students and all other interested parties.
 
 
-What is Image Segmantation?
+What is Image Segmentation?
 ======
 Image Segmentation is a **computer vision technique** that involves partitioning an image into multiple
 segments or regions to simplify its representation and make it more meaningful and easier to analyze.
@@ -43,7 +43,7 @@ technique called **Deep Learning**, which uses raw inputs to learn hierarchical 
 These hierarchical representations enable deep learning models to learn complex patterns and
 relationships within data, making it highly effective for image recognition and segmentation.
 
-Why is Image Segmantation important?
+Why is Image Segmentation important?
 ======
 Image Segmentation is important for **object recognition** and **detection**. Segmenting an image into
 meaningful regions helps in identifying and locating objects within the image. It is already used in
@@ -86,8 +86,8 @@ that has been published in this field yet.
 </p>
 
 So what is a **Multi-Modal Large Language Model** then? A Multi-Modal LLM is nothing else than an
-LLM equipped with the ability to process and generate content across **multiple modalities**, not
-just text, but also audio, images and video. In the case of LISA, we provide language instructions
+LLM which is equipped with the ability to process and generate content across **multiple modalities**, not
+just text, but also audio, images, and video. In the case of LISA, we provide language instructions
 and it identifies the corresponding parts in the other modality: an image.
 
 What is Reasoning Segmentation?
@@ -138,7 +138,7 @@ Introducing LISA
 ======
 LISA is a large language-instructed segmentation assistant that **introduces reasoning to modern segmentation systems**. What sets LISA apart from other segmentation models of its kind is the fact that LISA can use **complex reasoning and real-world knowledge** to fulfill the tasks that it is given, even developing robust **zero-shot capabilities**. Not only that, but LISA is also able to output complete explanatory answers and is even capable of having entire Multi-Turn conversations with a user. This opens up huge potential for the way machines understand complex human requests.
 
-Piepline:
+Pipeline:
 ======
 
 <p align="center">
@@ -155,7 +155,7 @@ The Architecture of Lisa operates in a **pipeline fashion**. At one end the mode
   <img src="https://github.com/user-attachments/assets/38f89f07-1818-46db-9ffb-624cffb291ab" width="350" title="Pipeline of Lisa">
 </p>
 
-The input of LISA contains only two things, an **image**, and a **query text**. The part that makes this input special is the **complexity** of the input text. With models prior to LISA, this input text could not be very complex. On the contrary. It actually had to be very simple and concise and explain directly what the intent behind the input is. For the image above the input would probably have to be along the lines of, "Please segment the orange in this image". 
+The input of LISA contains only two things, an **image**, and a **query text**. The part that makes this input special is the **complexity** of the input text. With models prior to LISA, this input text could not be very complex. On the contrary. It had to be very simple and concise and explain directly what the intent behind the input is. For the image above the input would probably have to be along the lines of, "Please segment the orange in this image". 
 
 Now with LISA, this is no longer the case. For LISAs input query one is now able to ask long and complex questions and even questions that do not directly reveal what the intended object is that should be segmented. LISA's inputs can now be questions like "What is the food with the most Vitamin C in this image?". You can also have longer conversations with it in which you slowly reveal what object you want to be segmented. 
 
@@ -242,12 +242,12 @@ To fine-tune the model efficiently while at the same time preserving its learned
 Experiment
 ======
 
-In the following experiments, different methods and models were tested against LISA and even LISA itself was tested in **multiple different variants**. The training took place with only 8 NVIDIA 24G 3090 GPUs and with only 10,000 training steps. Additionally, the researchers had to **create their own benchmark** for the testing because at the time of the study, there was no existing representative one.
+In the following experiments, different methods and models were tested against LISA and even LISA itself was tested in **multiple different variants**. The training took place with only 8 NVIDIA 24G 3090 GPUs and with only 10,000 training steps. Additionally, the researchers had to **create their own benchmark** for the testing because, at the time of the study, there was no existing representative one.
 
 **Reasoning Segmentation:**
 
 In this first Reasoning Segmentation test the models were given **implicit query texts**, so the different models needed to actively reason or access world knowledge in order to fully understand the request and segment the correct objects.     
-For a more exact analysis short query, long query and overall performance were looked at separately, but no matter what LISA completely outperformed all other models, even the not finetuned 7B version of itself. The other models were just unable to truly understanding the query.
+For a more exact analysis short query, long query, and overall performance were looked at separately, but no matter what LISA completely outperformed all other models, even the not finetuned 7B version of itself. The other models were just unable to truly understand the query.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/47ae958a-7c00-4218-b743-b094a2da1f1c" width="600" title="Reasoning Segmentation Result">
