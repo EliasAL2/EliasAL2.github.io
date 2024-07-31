@@ -199,7 +199,7 @@ Another important aspect of SAM is that it was built with being **easily transfe
   <img src="https://github.com/user-attachments/assets/2d99d50c-e937-4d1b-8c8e-23032aa6d99e" width="400" title="Multi Modal LLM of Lisa">
 </p>
 
-Next up is the Multi-Modal LLM of LISA. This one was trained using **LLaVA** [8] as a base. As an input, it takes both the image and the text and later on outputs a new text. The important part the researchers added to their MMLLM for LISA is the **<SEG> token** that was added to the vocabulary of the LLM.
+Next up is the Multi-Modal LLM of LISA. This one was trained using **LLaVA** [8] as a base. As an input, it takes both the image and the text and later on outputs a new text. The important part the researchers added to their MMLLM for LISA is the <SEG> token that was added to the vocabulary of the LLM.
 
 This toke signifies the **request for segmentation**. So when the request for segmentation was made in the input text like in our example (With "Please output segmentation mask") the MMLLM will detect this and add a <SEG> token to its output. This <SEG> token will then later on clarify the need for a segmentation mask for the upcoming components of LISA so it makes sure that a segmentation mask is put over the correct part of the image.
 
@@ -233,7 +233,7 @@ A reason for this efficient and fast training is certainly LoRA[2]. LoRA or Low-
 </p>
 
 
-The decoder now takes in all of the extracted visual data of the vision backbone and the embedding of the <SEG> token which clarifies the need for segmentation. With all of this information, it now **constructs the final segmentation mask** that is laid over the input image and presents this as our output.
+The decoder now takes in all of the extracted visual data of the vision backbone and the embedding of the <SEG> token which clarifies the need for segmentation. With all of this information, it now constructs the **final segmentation mask** that is laid over the input image and presents this as our output.
 
   
 **Resulting Image:**
