@@ -233,7 +233,7 @@ A reason for this efficient and fast training is certainly LoRA[2]. LoRA or Low-
 </p>
 
 
-The decoder now takes in all of the extracted visual data of the vision backbone and the embedding of the <SEG> token which clarifies the need for segmentation. With all of this information, it now constructs the **final segmentation mask** that is laid over the input image and presents this as our output.
+The decoder now takes in all of the extracted visual data of the vision backbone and the embedding of the SEG token which clarifies the need for segmentation. With all of this information, it now constructs the final segmentation mask that is laid over the input image and presents this as our output.
 
   
 **Resulting Image:**
