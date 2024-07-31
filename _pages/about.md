@@ -11,7 +11,7 @@ Introduction
 ======
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/6505e000-2d65-4dad-9596-771effc2324b" width="750" title="interaction examples">
+<img src="https://github.com/user-attachments/assets/6505e000-2d65-4dad-9596-771effc2324b" width="750" title=" DETR interaction">
 </p>
 <p align="center">
   Image taken from [7] Example of Image Segmentation
@@ -56,23 +56,17 @@ Why is Image Segmentation important?
 ======
 Image Segmentation is important for **object recognition** and **detection**. Segmenting an image into
 meaningful regions helps in identifying and locating objects within the image. It is already indispensable in
-many fields, to which we will come in a bit.
+many fields, such as 
 
-Segmenting an image into semantically meaningful regions also **improves the understanding of its
-content**. By dividing the image into parts corresponding to different objects or regions, it becomes
-easier to interpret and analyze the visual information present in the image.
+- image compression
+- hospitals
+- autonomous cars
 
-Another significant application area is **image compression**. Segmentation can be used to identify
-regions of interest within an image, allowing for more efficient compression and transmission of
-visual data. By focusing on the most relevant parts of the image, unnecessary information can be
-discarded or compressed, leading to reduced storage and bandwidth requirements.
+Segmentation can be used to identify regions of interest within an image, allowing for more **efficient compression** and **transmission** of visual data. By focusing on the most relevant parts of the image, unnecessary information can be discarded or compressed, leading to reduced storage and bandwidth requirements.
 
-A more specific area, where image segmentation is used nowadays is hospitals. It is in many places common practice
-for medical personnel to use image segmentation to find tumors and diseases, which you wouldn't be
-able to detect otherwise.
+It is also common practice in many places for medical personnel to use image segmentation to find tumors and diseases, which you wouldn't be able to detect otherwise.
 
-In addition to that, autonomous vehicles wouldn't be able to get on the market without image segmentation.
-Lacking it, they wouldn't be able to detect pedestrians and obstacles or even be able to hold their lane.
+Autonomous vehicles wouldn't be able to get on the market without image segmentation. Lacking it, they wouldn't be able to detect pedestrians and obstacles or even be able to hold their lane.
 
 These are only a few fields, where image segmentation is already in use and there are many more.
 
@@ -290,10 +284,15 @@ Once again the researchers were able to celebrate seeing LISA prevailing against
 **Ablation Study:**
 
 To justify the use of certain design choices the researchers performed an **Ablation Study**.      
+
 Firstly, they explain how while **SAM** emerged as the **preferred vision backbone** others would be also applicable in the presented framework and the choice is therefore adaptable. SAM does however **outperform the other vision-backbone models**. 
-Furthermore, the Ablation study revealed that **LoRA finetuning does not yield any significant performance improvements on SAM**. It is actually inferior compared to the frozen one. (This could indicate potential limitations in fine-tuning strategies)     
+
+Furthermore, the Ablation study revealed that **LoRA finetuning does not yield any significant performance improvements on SAM**. It is actually inferior compared to the frozen one. (This could indicate potential limitations in fine-tuning strategies)   
+
 **SAM Pre-trained Weight** on the other hand **significantly contributed** to the performance and enhanced it substantially.   
-**Semantic segmentation datasets** played a crucial role in the training of the model and without it, performance would drop a lot. They are therefore quite important for training.       
+
+**Semantic segmentation datasets** played a crucial role in the training of the model and without it, performance would drop a lot. They are therefore quite important for training.   
+
 **Data augmentation** (i.e. rephrasing text instructions) via GPT-3.5 also proved effective in boosting performance further.
 
 
