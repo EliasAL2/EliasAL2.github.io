@@ -62,7 +62,14 @@ many fields, such as
 - hospitals
 - autonomous cars
 
-Segmentation canidentify regions of interest within an image, allowing for more **efficient compression** and **transmission** of visual data. By focusing on the most relevant parts of the image, unnecessary information can be discarded or compressed, reducing storage and bandwidth requirements.
+<p align="center">
+<img src="https://github.com/user-attachments/assets/72235632-7c95-4a0e-8b79-1655cbc8c19d" width="400" title="interaction examples">
+</p>
+<p align="center">
+  Image taken from [3] Example of Image Segmentation
+</p>
+
+Segmentation can identify regions of interest within an image, allowing for more **efficient compression** and **transmission** of visual data. By focusing on the most relevant parts of the image, unnecessary information can be discarded or compressed, reducing storage and bandwidth requirements.
 
 It is also common practice in many places for medical personnel to use image segmentation to find tumors and diseases, which you wouldn't be able to detect otherwise.
 
@@ -70,12 +77,7 @@ Autonomous vehicles wouldn't be able to get on the market without image segmenta
 
 These are only a few fields, where image segmentation is already in use and there are many more.
 
-<p align="center">
-<img src="https://github.com/user-attachments/assets/72235632-7c95-4a0e-8b79-1655cbc8c19d" width="400" title="interaction examples">
-</p>
-<p align="center">
-  Image taken from [3] Example of Image Segmentation
-</p>
+
 
 What is a Multi-Modal Large Language Model?
 ======
@@ -157,7 +159,7 @@ Pipeline:
   <img src="https://github.com/user-attachments/assets/d6f2c77f-5b85-499f-8eda-a93ec4233327" width="600" title="Pipeline of Lisa">
 </p>
 
-The Architecture of Lisa operates in a **pipeline fashion**. At one end the model is presented with an image and a (complex) textual instruction. These inputs then go through several different components in order to finally present an image with a red segmentation mask laid over the desired object in the input image. The following explains this pipeline in more detail.
+The Architecture of Lisa operates in a **pipeline fashion**. At one end the model is presented with an image and a (complex) textual instruction. These inputs then go through several different components in order to finally present an output image with a red segmentation mask laid over the desired object in the input image. The following explains this pipeline in more detail.
 
 
   
@@ -169,9 +171,9 @@ The Architecture of Lisa operates in a **pipeline fashion**. At one end the mode
 
 The input of LISA contains only two things, an **image**, and a **query text**. The part that makes this input special is the **complexity** of the input text. With models prior to LISA, this input text could not be very complex. On the contrary. It had to be very simple and concise and explain directly what the intent behind the input is. For the image above the input would probably have to be along the lines of, "Please segment the orange in this image". 
 
-Now with LISA, this is no longer the case. For LISAs input query one is now able to ask long and complex questions and even questions that do not directly reveal what the intended object is that should be segmented. LISA's inputs can now be questions like "What is the food with the most Vitamin C in this image?". You can also have longer conversations with it in which you slowly reveal what object you want to be segmented. 
+Now with LISA, this is no longer the case. For LISAs input query one is now able to ask **long and complex questions** and even questions that do not directly reveal what the intended object is that should be segmented. LISA's inputs can now be questions like "What is the food with the most Vitamin C in this image?". You can also have longer conversations with it in which you slowly reveal what object you want to be segmented. 
 
-What is it exactly that makes Lisa capable of all these things? It's the **ability to reason and to understand and use real-world knowledge**. With these, it can understand even the most complex questions and still give accurate answers. How exactly these reasoning capabilities come to be is through the several different components of LISA.
+What is it exactly that makes LISA capable of all these things? It's the **ability to reason and to understand and use real-world knowledge**. With these, it can understand even the most complex questions and still give accurate answers. How exactly these reasoning capabilities come to be is through the several different components of LISA.
 
 
   
@@ -181,11 +183,11 @@ What is it exactly that makes Lisa capable of all these things? It's the **abili
   <img src="https://github.com/user-attachments/assets/99fa7e0b-5aa0-464e-a1af-20f8bf4a1f64" width="400" title="Vision Encoder of Lisa">
 </p>
 
-The Vision Encoder or Vision Backbone is the first of these components. It takes the input image and extracts all of the important information out of it. It then transforms this data so it can be used in the next steps. For LISA the researchers decided to use **SAM** as the Vision Backbone. However, they also want to clarify that other similar models would have been also possible to be used here meaning this component is very flexible. Still, the researchers decided to use SAM. 
+The Vision Encoder or Vision Backbone is the first of these components. It takes the input image and extracts all of the important information out of it. It then transforms this data so it can be used in the next steps. For LISA the researchers decided to use **SAM as the Vision Backbone**. However, they also want to clarify that other similar models would have been also possible to be used here meaning this component is very **flexible**. Still, the researchers decided to use SAM. 
 
 SAM[3] or the Segment Anything Model is an extremely powerful model for image segmentation tasks. It was trained on the largest segmentation dataset so far. 
-One very important capability of SAM for the LISA model is its **zero-shot capability**. This means SAM is able to work with images it has never seen before. Obviously a very important feature for LISA since it should also be able to work with images it has never seen before at still segment the target object accurately. 
-Another important aspect of SAM is that it was built with being **easily transferable** to new tasks in mind. Meaning its very easy to incorporate SAM into other models and use its capabilities for specific tasks.
+One very important capability of SAM for the LISA model is its **zero-shot capability**. This means SAM is able to work with images it has never seen before. Obviously a very important feature for LISA since it should also be able to work with images it has never seen before and still segment the target object accurately. 
+Another important aspect of SAM is that it was built with being **easily transferable** to new tasks in mind. Meaning it's very easy to incorporate SAM into other models and use its capabilities for specific tasks.
 
 
   
@@ -195,7 +197,7 @@ Another important aspect of SAM is that it was built with being **easily transfe
   <img src="https://github.com/user-attachments/assets/2d99d50c-e937-4d1b-8c8e-23032aa6d99e" width="400" title="Multi Modal LLM of Lisa">
 </p>
 
-Next up is the Multi-Modal LLM of LISA. This one was trained using **LLaVa** as a base. As an input, it takes both the image and the text and later on outputs a new text. The important part the researchers added to their MMLLM for LISA is the **<SEG> token** that was added to the vocabulary of the LLM.
+Next up is the Multi-Modal LLM of LISA. This one was trained using **LLaVA**[8] as a base. As an input, it takes both the image and the text and later on outputs a new text. The important part the researchers added to their MMLLM for LISA is the **<SEG> token** that was added to the vocabulary of the LLM.
 This toke signifies the **request for segmentation**. So when the request for segmentation was made in the input text like in our example (With "Please output segmentation mask") the MMLLM will detect this and add a <SEG> token to its output. This <SEG> token will then later on clarify the need for a segmentation mask for the upcoming components of LISA so it makes sure that a segmentation mask is put over the correct part of the image.
 The training of this MMLLM took a comparably small amount of time only taking 3 days and was relatively resource inexpensive.
 
@@ -213,8 +215,10 @@ The training of this MMLLM took a comparably small amount of time only taking 3 
 </p>
 
 A reason for this efficient and fast training is certainly LoRA[2]. LoRA or Low-Rang Adaptation is used to **perform efficient fine-tuning of language models to adapt to different kinds of tasks**. It enables effective **adjustments of the model without major changes**. It accomplishes this with two key factors. 
-First up it freezes the pre-trained weight so it doesn't have to be refreshed on every single change. 
-Secondly, it injects trainable matrices with low-rank structures into every layer of the model. This in turn reduces the amount of parameters that need to be trained.
+
+1. First up it **freezes the pre-trained weight** so it doesn't have to be refreshed on every single change. 
+
+2. Secondly, it **injects trainable matrices** with low-rank structures into every layer of the model. This in turn reduces the amount of parameters that need to be trained.
 
 
   
@@ -225,7 +229,7 @@ Secondly, it injects trainable matrices with low-rank structures into every laye
 </p>
 
 
-The decoder now takes in all of the extracted visual data of the vision backbone and the embedding of the <SEG> token which clarifies the need for segmentation. With all of this information, it now **constructs the final segmentation mask** that is laid over the input image and presents this as our Output.
+The decoder now takes in all of the extracted visual data of the vision backbone and the embedding of the <SEG> token which clarifies the need for segmentation. With all of this information, it now **constructs the final segmentation mask** that is laid over the input image and presents this as our output.
 
   
 **Resulting Image:**
@@ -235,7 +239,7 @@ The decoder now takes in all of the extracted visual data of the vision backbone
 </p>
 
 
-In the final image, the desired object is now **marked with a red segmentation mask**. The even more impressive part here though is not the part that is segmented but that part that isn't. Through the **high accuracy**, the entire rest of the image stays unchanged and unsegmented only highlighting the actual desired object. A feat that other models rarely achieve given the complex input texts that LISA was tested on.
+In the final image, the desired object is now **marked with a red segmentation mask**. The even more impressive part here though is not the part that is segmented but that part that isn't. Through the **high accuracy**, the entire rest of the image stays unchanged and unsegmented only highlighting the actual desired object. A feat that other models rarely achieve when given the same complex input texts that LISA was tested on.
 
 To show that this isn't just one example here are some other segmented images with the respective input next to it.
 <p align="center">
@@ -337,3 +341,4 @@ References
 [6]Shengqqiong Wu, Hao Fei, Leigang Qu, Wei Ji, & Tat-Seng Chua. "Next-gpt: Any-to-any multimodal llm." arXiv preprint arXiv:2309.05519 (2023)    
 [7]Nicolas Carion, Francisco Massa, Gabriel Synnaeve, Nicolas Usunier, Alexander Kirillov, and Sergey
 Zagoruyko. End-to-end object detection with transformers. In ECCV, 2020   
+[8]Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong Jae Lee. Visual instruction tuning. arXiv:2304.08485, 2023.
