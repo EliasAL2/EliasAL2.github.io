@@ -9,9 +9,18 @@ redirect_from:
 
 Introduction
 ======
-**AI models** have come a long way in the past few years and so did perception systems. They have become so
-accurate, that one could think they can execute all visual recognition tasks only rarely making mistakes. The only problem is that those systems used to require a user to give very **specific instructions** on what to identify to be able to achieve it.          
-A good system needs to be able to **reason and understand users' intentions** based on implicit instructions as shown below.
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/6505e000-2d65-4dad-9596-771effc2324b" width="750" title="interaction examples">
+</p>
+<p align="center">
+  Image taken from [7] Example of Image Segmentation
+</p>
+
+The picture above shows a standard image segmentation output. It is impressive how the model can correctly identify and segment all important areas. Unfortunately the model only knows the name of the areas and nothing more. This is a problem because it wouldn't know which item you are referring to if you were to describe one to it. An even bigger deficiency is that you could not even describe an object to the model in the first place, because it is actually impossible to interact with it.
+
+A good model should be able to deeply understand what areas or items it is segmenting based on **world knowledge**. It should also offer **interaction possibilities** and **reasoning abilities**. Maybe even be able to hold **Multi-Turn conversations**, so it can understand users intentions based on implicit descriptions. 
+Just like this:
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/d5590401-24b4-400c-949b-25a3c9fb69aa" width="400" title="interaction examples">
@@ -46,20 +55,25 @@ relationships within data, making it highly effective for image recognition and 
 Why is Image Segmentation important?
 ======
 Image Segmentation is important for **object recognition** and **detection**. Segmenting an image into
-meaningful regions helps in identifying and locating objects within the image. It is already used in
+meaningful regions helps in identifying and locating objects within the image. It is already indispensable in
 many fields, to which we will come in a bit.
+
 Segmenting an image into semantically meaningful regions also **improves the understanding of its
 content**. By dividing the image into parts corresponding to different objects or regions, it becomes
 easier to interpret and analyze the visual information present in the image.
+
 Another significant application area is **image compression**. Segmentation can be used to identify
 regions of interest within an image, allowing for more efficient compression and transmission of
 visual data. By focusing on the most relevant parts of the image, unnecessary information can be
 discarded or compressed, leading to reduced storage and bandwidth requirements.
-A specific area, where image segmentation is used nowadays is hospitals. It is in many places common practice
+
+A more specific area, where image segmentation is used nowadays is hospitals. It is in many places common practice
 for medical personnel to use image segmentation to find tumors and diseases, which you wouldn't be
 able to detect otherwise.
+
 In addition to that, autonomous vehicles wouldn't be able to get on the market without image segmentation.
 Lacking it, they wouldn't be able to detect pedestrians and obstacles or even be able to hold their lane.
+
 These are only a few fields, where image segmentation is already in use and there are many more.
 
 <p align="center">
@@ -105,8 +119,10 @@ Related Works
 ======
 **1. SegNet:**
 
-SegNet[4] is a cutting-edge deep learning architecture specifically designed for semantic image segmentation, which involves classifying each pixel in an image into a distinct category. This architecture features an encoder-decoder structure. The encoder, a streamlined version of conventional convolutional neural networks, captures essential image features through a series of convolution and pooling layers. The decoder then upsamples these features back to the original image resolution, ensuring accurate pixel classification.     
-A standout feature of SegNet is its use of pooling indices, which record the locations of maximum values during the pooling operations in the encoder. These indices are crucial in the decoder for precise upsampling, maintaining spatial accuracy and context. This method allows SegNet to be both memory-efficient and highly effective in tasks requiring detailed pixel-level information.       
+SegNet[4] is a cutting-edge deep learning architecture specifically designed for semantic image segmentation, which involves classifying each pixel in an image into a distinct category. This architecture features an encoder-decoder structure. The encoder, a streamlined version of conventional convolutional neural networks, captures essential image features through a series of convolution and pooling layers. The decoder then upsamples these features back to the original image resolution, ensuring accurate pixel classification.
+
+A standout feature of SegNet is its use of pooling indices, which record the locations of maximum values during the pooling operations in the encoder. These indices are crucial in the decoder for precise upsampling, maintaining spatial accuracy and context. This method allows SegNet to be both memory-efficient and highly effective in tasks requiring detailed pixel-level information. 
+
 SegNet finds applications in various fields, from autonomous driving (for road scene understanding) to medical imaging (for organ segmentation) and satellite image analysis (for land cover classification). Its ability to deliver high-resolution, accurate segmentation makes it a valuable tool in these and other areas.      
 The picture below contains demonstrations of SegNet.
 
@@ -121,8 +137,10 @@ The picture below contains demonstrations of SegNet.
 
 **2. Flamingo:**
 
-Flamingo[5] is an advanced vision-language model designed to seamlessly integrate visual and textual data. It uses a combination of pre-trained vision and language models, allowing it to excel in a variety of tasks that require understanding and generating content based on both images and text.     
+Flamingo[5] is an advanced vision-language model designed to seamlessly integrate visual and textual data. It uses a combination of pre-trained vision and language models, allowing it to excel in a variety of tasks that require understanding and generating content based on both images and text.  
+
 The architecture of Flamingo includes a visual encoder to process images and a language model to handle text, filling the gap between these two types of data. Trained on extensive datasets containing both images and corresponding textual descriptions, Flamingo learns to understand the complex relationships between visual elements and their corresponding texts.    
+
 This capability makes Flamingo highly effective in applications such as image captioning, where it generates descriptive captions for images, and visual question answering, where it provides accurate answers based on the content of images.      
 Again, below is a little demonstration.
 
@@ -312,9 +330,11 @@ We also want to make a note and praise the researchers for all the effort and en
 
 References
 ---------
-[1]Xin Lai, Zhuotao Tian, Yukang Chen, Yanwei Li, Yuhui Yuan, Shu Liu, & Jiaya Jia. "Lisa: Reasoning segmentation via large language model." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2024.
-[2]Edward J Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen- Zhu, Yuanzhi Li, Shean Wang, Lu Wang, and Weizhu Chen. Lora: Low-rank adaptation of large language models.arXiv:2106.09685, 2021. 
-[3]Alexander Kirillov, Eric Mintun, Nikhila Ravi, Hanzi Mao, Chloe Rolland, Laura Gustafson, Tete Xiao, Spencer Whitehead, Alexander C Berg, Wan-Yen Lo, et al. Segment anything. arXiv:2304.02643, 2023.
-[4]Vijay Badrinarayanan, Alex Kendall, and Roberto Cipolla. Segnet: A deep convolutional encoder- decoder architecture for image segmentation. TPAMI, 2017
-[5]Jean-Baptiste Alayrac, Jeff Donahue, Pauline Luc, Antoine Miech, Iain Barr, Yana Hasson, Karel Lenc, Arthur Mensch, Katherine Millican, Malcolm Reynolds, et al. Flamingo: a visual language model for few-shot learning. NeurIPS, 2022
-[6]Shengqqiong Wu, Hao Fei, Leigang Qu, Wei Ji, & Tat-Seng Chua. "Next-gpt: Any-to-any multimodal llm." arXiv preprint arXiv:2309.05519 (2023)
+[1]Xin Lai, Zhuotao Tian, Yukang Chen, Yanwei Li, Yuhui Yuan, Shu Liu, & Jiaya Jia. "Lisa: Reasoning segmentation via large language model." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2024.    
+[2]Edward J Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen- Zhu, Yuanzhi Li, Shean Wang, Lu Wang, and Weizhu Chen. Lora: Low-rank adaptation of large language models.arXiv:2106.09685, 2021.     
+[3]Alexander Kirillov, Eric Mintun, Nikhila Ravi, Hanzi Mao, Chloe Rolland, Laura Gustafson, Tete Xiao, Spencer Whitehead, Alexander C Berg, Wan-Yen Lo, et al. Segment anything. arXiv:2304.02643, 2023.    
+[4]Vijay Badrinarayanan, Alex Kendall, and Roberto Cipolla. Segnet: A deep convolutional encoder- decoder architecture for image segmentation. TPAMI, 2017    
+[5]Jean-Baptiste Alayrac, Jeff Donahue, Pauline Luc, Antoine Miech, Iain Barr, Yana Hasson, Karel Lenc, Arthur Mensch, Katherine Millican, Malcolm Reynolds, et al. Flamingo: a visual language model for few-shot learning. NeurIPS, 2022    
+[6]Shengqqiong Wu, Hao Fei, Leigang Qu, Wei Ji, & Tat-Seng Chua. "Next-gpt: Any-to-any multimodal llm." arXiv preprint arXiv:2309.05519 (2023)    
+[7]Nicolas Carion, Francisco Massa, Gabriel Synnaeve, Nicolas Usunier, Alexander Kirillov, and Sergey
+Zagoruyko. End-to-end object detection with transformers. In ECCV, 2020   
