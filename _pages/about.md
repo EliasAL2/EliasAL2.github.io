@@ -17,9 +17,9 @@ Introduction
   Image taken from [7] Example of Image Segmentation
 </p>
 
-The picture above shows a standard image segmentation output. It is impressive how the model can correctly identify and segment all important areas. Unfortunately the model only knows the name of the areas and nothing more. This is a problem because it wouldn't know which item you are referring to if you were to describe one to it. An even bigger deficiency is that you could not even describe an object to the model in the first place, because it is actually impossible to interact with it.
+The picture above shows a standard image segmentation output. It is impressive how the model can correctly identify and segment all important areas. Unfortunately, the model only knows the name of the areas and nothing more. This is a problem because it wouldn't know which item you are referring to if you were to describe one to it. An even bigger deficiency is that you could not even describe an object to the model in the first place because it is actually impossible to interact with it.
 
-A good model should be able to deeply understand what areas or items it is segmenting based on **world knowledge**. It should also offer **interaction possibilities** and **reasoning abilities**. Maybe even be able to hold **Multi-Turn conversations**, so it can understand users intentions based on implicit descriptions. 
+A good model should be able to deeply understand what areas or items it is segmenting based on **world knowledge**. It should also offer **interaction possibilities** and **reasoning abilities**. Maybe even be able to hold **Multi-Turn conversations**, so it can understand users' intentions based on implicit descriptions. 
 Just like this:
 
 <p align="center">
@@ -55,14 +55,14 @@ relationships within data, making it highly effective for image recognition and 
 Why is Image Segmentation important?
 ======
 Image Segmentation is important for **object recognition** and **detection**. Segmenting an image into
-meaningful regions helps in identifying and locating objects within the image. It is already indispensable in
+meaningful regions helps identify and locate objects within the image. It is already indispensable in
 many fields, such as 
 
 - image compression
 - hospitals
 - autonomous cars
 
-Segmentation can be used to identify regions of interest within an image, allowing for more **efficient compression** and **transmission** of visual data. By focusing on the most relevant parts of the image, unnecessary information can be discarded or compressed, leading to reduced storage and bandwidth requirements.
+Segmentation canidentify regions of interest within an image, allowing for more **efficient compression** and **transmission** of visual data. By focusing on the most relevant parts of the image, unnecessary information can be discarded or compressed, reducing storage and bandwidth requirements.
 
 It is also common practice in many places for medical personnel to use image segmentation to find tumors and diseases, which you wouldn't be able to detect otherwise.
 
