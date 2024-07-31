@@ -186,7 +186,9 @@ What is it exactly that makes LISA capable of all these things? It's the **abili
 The Vision Encoder or Vision Backbone is the first of these components. It takes the input image and extracts all of the important information out of it. It then transforms this data so it can be used in the next steps. For LISA the researchers decided to use **SAM as the Vision Backbone**. However, they also want to clarify that other similar models would have been also possible to be used here meaning this component is very **flexible**. Still, the researchers decided to use SAM. 
 
 SAM[3] or the Segment Anything Model is an extremely powerful model for image segmentation tasks. It was trained on the largest segmentation dataset so far. 
+
 One very important capability of SAM for the LISA model is its **zero-shot capability**. This means SAM is able to work with images it has never seen before. Obviously a very important feature for LISA since it should also be able to work with images it has never seen before and still segment the target object accurately. 
+
 Another important aspect of SAM is that it was built with being **easily transferable** to new tasks in mind. Meaning it's very easy to incorporate SAM into other models and use its capabilities for specific tasks.
 
 
@@ -197,8 +199,10 @@ Another important aspect of SAM is that it was built with being **easily transfe
   <img src="https://github.com/user-attachments/assets/2d99d50c-e937-4d1b-8c8e-23032aa6d99e" width="400" title="Multi Modal LLM of Lisa">
 </p>
 
-Next up is the Multi-Modal LLM of LISA. This one was trained using **LLaVA**[8] as a base. As an input, it takes both the image and the text and later on outputs a new text. The important part the researchers added to their MMLLM for LISA is the **<SEG> token** that was added to the vocabulary of the LLM.
+Next up is the Multi-Modal LLM of LISA. This one was trained using **LLaVA** [8] as a base. As an input, it takes both the image and the text and later on outputs a new text. The important part the researchers added to their MMLLM for LISA is the **<SEG> token** that was added to the vocabulary of the LLM.
+
 This toke signifies the **request for segmentation**. So when the request for segmentation was made in the input text like in our example (With "Please output segmentation mask") the MMLLM will detect this and add a <SEG> token to its output. This <SEG> token will then later on clarify the need for a segmentation mask for the upcoming components of LISA so it makes sure that a segmentation mask is put over the correct part of the image.
+
 The training of this MMLLM took a comparably small amount of time only taking 3 days and was relatively resource inexpensive.
 
 
